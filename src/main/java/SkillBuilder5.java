@@ -6,6 +6,7 @@
  * @version (a version number or a date)
  */
 public class SkillBuilder5
+
 {
     /**
      * Calculates the prefix average of array data and returns the prefex average
@@ -16,10 +17,20 @@ public class SkillBuilder5
      *         from data.
      */
     public static double[] prefixAverage(double[] data)
-    {
+    {int holder = 0;
+        double[]pfa = new double[data.length];
+
+
+    for(int i = 0; i < data.length; i++) {
+        holder += data[i];
+
         //TODO: replace this line with your code.
-        return null;
+
+        pfa[i] = holder/ (i+1);
+
+
     }
+        return pfa; }
 
     /**
      * Finds the location in array anArray where value is located.  If anArray
@@ -29,10 +40,18 @@ public class SkillBuilder5
      * @param anArray array in which to look for a value
      * @returns index of the value in the array; -1 otherwise.
      */
-    public static int  indexOf(int searchValue, int[] anArray)
-    {
-        //TODO: replace this line with your code.
-        return 0;
+    public static int  indexOf(int searchValue, int[] anArray) {
+        for (int i = 0; i < anArray.length; i++) {//TODO: replace this line with your code.
+            if (searchValue == anArray[i]) {
+                return i;
+            }
+
+
+
+        }
+
+
+    return -1;
     }
 
     /**
@@ -45,8 +64,18 @@ public class SkillBuilder5
      */
     public static int  indexOf(String s, String[] anArray)
     {
-        //TODO: replace this line with your code.
-        return 0;
+        for (int i = 0; i < anArray.length; i++) {//TODO: replace this line with your code.
+            if (s.equals(anArray[i])) {
+                return i;
+            }
+
+
+
+        }
+
+
+        return -1;
+
     }
 
     /**
@@ -56,18 +85,43 @@ public class SkillBuilder5
      * @param anArray array in which to search and remove s
      * @return An array with all occurrences of s removed.
      */
-    public static String[] remove(String s, String[] anArray)
-    {
-        // add your code here
-        return null;
+    public static String[] remove(String s, String[] anArray){
+    int count = 0;
+    for (String string : anArray) {
+    if (s.equals(string)) {
+        count++;
     }
+}
+    String[] remove = new String[anArray.length - count];
+
+    int i = 0;
+
+    // Copy elements from original array to new array excluding occurrences of s
+    for (String string : anArray) {
+    if (!s.equals(string)) {
+        remove[i++] = string;
+    }
+}
+    return remove;
+}
 
     /**
      * Reverses an array of integers.
      * @param anArray the array whose contents should be reversed.
      */
     public static void reverse(int[] anArray)
-    {
-        // add your code here
-    }
-}
+    {   int low = 0;
+        int i = anArray.length-1;
+        while (low < i){
+            int temp = anArray[low];
+            anArray[low] = anArray[i];
+            anArray[i] = temp;
+            low++;
+            i--;
+
+        }
+
+
+          }
+
+ }
